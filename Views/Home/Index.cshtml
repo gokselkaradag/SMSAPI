@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<div class="container" style="margin-top: 50px;">
+    <div class="text-center mb-5">
+        <h1 class="display-4" style="font-weight: bold; color: #333;">SMS API Projesine Hoş Geldiniz</h1>
+        <p class="lead" style="color: #666;">Bu proje ile kolayca SMS gönderin ve ASP.NET Core'un gücünü keşfedin.</p>
+
+        
+        <form asp-action="SMS" method="post">
+            <button type="submit" class="btn btn-primary mt-3" style="border-radius: 8px; padding: 10px 20px;">
+                SMS Gönder
+            </button>
+        </form>
+
+        @if (TempData["Message"] != null)
+        {
+            <div id="messageAlert" class="alert alert-success alert-dismissible fade show text-center" style="border-radius: 6px; padding: 10px 40px 10px 10px; font-size: 0.85rem; position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 1050; width: 100%; max-width: 600px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);" role="alert">
+                @TempData["Message"]
+            </div>
+        }
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card p-4 mb-4" style="border: none; border-radius: 12px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);">
+                <div class="card-body text-center">
+                    <i class="bi bi-phone-fill" style="font-size: 3rem; color: #007bff;"></i>
+                    <h5 class="card-title mt-3" style="font-weight: bold;">Kolay SMS Gönderimi</h5>
+                    <p class="card-text" style="color: #666;">ASP.NET Core ile hızlı ve güvenli bir şekilde SMS gönderin.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card p-4 mb-4" style="border: none; border-radius: 12px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);">
+                <div class="card-body text-center">
+                    <i class="bi bi-cloud-upload-fill" style="font-size: 3rem; color: #28a745;"></i>
+                    <h5 class="card-title mt-3" style="font-weight: bold;">API Entegrasyonu</h5>
+                    <p class="card-text" style="color: #666;">Projeye kolayca API entegrasyonu yaparak işlerinizi hızlandırın.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    window.onload = function () {
+        var alertBox = document.getElementById("messageAlert");
+        if (alertBox) {
+            setTimeout(function () {
+                alertBox.classList.remove("show");
+            }, 3000);
+        }
+    };
+</script>
+
